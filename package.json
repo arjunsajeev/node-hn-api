@@ -10,6 +10,10 @@
   "keywords": ["hacker news", "hn"],
   "author": "Arjun Sajeev (https://arjunsajeev.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arjunsajeev/node-hn-api.git"
+  },
   "dependencies": {
     "node-fetch": "^1.7.2"
   },
