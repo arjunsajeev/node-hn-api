@@ -1,0 +1,20 @@
+{
+  "name": "node-hn-api",
+  "version": "1.0.0",
+  "description": "A promise based wrapper for the Hacker News Firebase API",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "npm test -- --watch",
+    "test": "xo && ava"
+  },
+  "keywords": ["hacker news", "hn"],
+  "author": "Arjun Sajeev (https://arjunsajeev.com)",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^1.7.2"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "xo": "^0.18.2"
+  }
+}
