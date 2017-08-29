@@ -1,5 +1,7 @@
 # node-hn-api [![Build Status](https://travis-ci.org/arjunsajeev/node-hn-api.svg?branch=master)](https://travis-ci.org/arjunsajeev/node-hn-api) [![npm](https://img.shields.io/npm/v/node-hn-api.svg?maxAge=3600)](https://www.npmjs.com/package/node-hn-api) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/arjunsajeev/node-hn-api.svg)](https://greenkeeper.io/)
+
 A promise based wrapper for the [Firebase Hacker News API](https://github.com/HackerNews/API)
 
 ## Installation
