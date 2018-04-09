@@ -1,16 +1,23 @@
 {
   "name": "node-hn-api",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A promise based wrapper for the Hacker News Firebase API",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
+    "build": "babel src -d build",
     "dev": "npm test -- --watch",
-    "test": "xo && ava"
+    "test": "ava",
+    "prepublishOnly": "npm build"
   },
   "keywords": [
     "hacker news",
     "hn"
   ],
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
   "author": "Arjun Sajeev (https://arjunsajeev.com)",
   "license": "MIT",
   "repository": {
@@ -18,10 +25,12 @@
     "url": "https://github.com/arjunsajeev/node-hn-api.git"
   },
   "dependencies": {
-    "node-fetch": "^1.7.2"
+    "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "ava": "^0.23.0",
-    "xo": "^0.18.2"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "xo": "^0.20.0"
   }
 }
