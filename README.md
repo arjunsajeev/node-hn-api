@@ -1,27 +1,82 @@
-# TSDX Bootstrap
+# node-hn-api [![Build Status](https://travis-ci.org/arjunsajeev/node-hn-api.svg?branch=master)](https://travis-ci.org/arjunsajeev/node-hn-api) [![npm](https://img.shields.io/npm/v/node-hn-api.svg?maxAge=3600)](https://www.npmjs.com/package/node-hn-api) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Greenkeeper badge](https://badges.greenkeeper.io/arjunsajeev/node-hn-api.svg)](https://greenkeeper.io/)
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+A promise based wrapper for the
+[Firebase Hacker News API](https://github.com/HackerNews/API)
 
-## Local Development
+## Installation
 
-Below is a list of commands you will probably find useful.
+```sh
+npm i node-hn-api
+```
 
-### `npm start` or `yarn start`
+## Usage
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+```js
+const hn = require('node-hn-api')
+hn
+  .fetchTopStories(5)
+  .then(topStories => {
+    //..
+  })
+  .catch(err => {
+    console.error(err)
+  })
+```
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+## API
 
-Your library will be rebuilt if you make edits.
+### fetchItem(itemId) - Fetch Hacker News [Item](https://github.com/HackerNews/API) data
 
-### `npm run build` or `yarn build`
+Returns a promise
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+### fetchUser(userId) - Fetch Hacker News [User](https://github.com/HackerNews/API#users) data
 
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+Returns a promise
 
-### `npm test` or `yarn test`
+### fetchTopStories([numberOfStories]) - Fetch Hacker News [Top Stories](https://github.com/HackerNews/API#new-top-and-best-stories) data
 
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+Returns a promise
+
+#### numberOfStories - number
+
+Number of records to fetch
+
+### fetchNewStories([numberOfStories]) - Fetch Hacker News [New Stories](https://github.com/HackerNews/API#new-top-and-best-stories) data
+
+Returns a promise
+
+#### numberOfStories - number
+
+Number of records to fetch
+
+### fetchBestStories([numberOfStories]) - Fetch Hacker News [Best Stories](https://github.com/HackerNews/API#new-top-and-best-stories) data
+
+Returns a promise
+
+#### numberOfStories - number
+
+Number of records to fetch
+
+### fetchAskStories([numberOfStories]) - Fetch [Ask Hacker News Stories](https://github.com/HackerNews/API#ask-show-and-job-stories) data
+
+Returns a promise
+
+#### numberOfStories - number
+
+Number of records to fetch
+
+### fetchShowStories([numberOfStories]) - Fetch [Show Hacker News Stories](https://github.com/HackerNews/API#ask-show-and-job-stories) data
+
+Returns a promise
+
+#### numberOfStories - number
+
+Number of records to fetch
+
+### fetchJobStories([numberOfStories]) - Fetch Hacker News [Job Stories](https://github.com/HackerNews/API#ask-show-and-job-stories) data
+
+Returns a promise
+
+#### numberOfStories - number
+
+Number of records to fetch
