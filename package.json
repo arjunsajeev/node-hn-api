@@ -1,6 +1,6 @@
 {
   "name": "node-hn-api",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "dist/index.js",
   "module": "dist/node-hn-api.esm.js",
   "typings": "dist/index.d.ts",
