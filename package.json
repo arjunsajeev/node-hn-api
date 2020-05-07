@@ -37,12 +37,12 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "husky": "^3.0.8",
-    "tsdx": "^0.9.3",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/jest": "^25.2.1",
+    "husky": "^4.2.5",
+    "tsdx": "^0.13.2",
     "tslib": "^1.10.0",
-    "typescript": "^3.6.3",
-    "@types/isomorphic-fetch": "^0.0.35"
+    "typescript": "^3.6.3"
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1"
