@@ -38,13 +38,13 @@
   },
   "devDependencies": {
     "@types/isomorphic-fetch": "^0.0.35",
-    "@types/jest": "^25.2.1",
-    "husky": "^4.2.5",
-    "tsdx": "^0.13.2",
-    "tslib": "^1.10.0",
-    "typescript": "^3.6.3"
+    "@types/jest": "^26.0.20",
+    "husky": "^5.0.9",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.5"
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^3.0.0"
   }
 }
