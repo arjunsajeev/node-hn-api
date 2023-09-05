@@ -1,5 +1,5 @@
 import fetchData from 'isomorphic-fetch';
-const {
+import {
   getItemURL,
   getUserURL,
   topStoriesURL,
@@ -8,7 +8,7 @@ const {
   askStoriesURL,
   jobStoriesURL,
   showStoriesURL,
-} = require('./urls');
+} from './urls';
 const defaultNumberOfStories = 10;
 
 function fetchJSON(URL: string) {
@@ -18,11 +18,11 @@ function fetchJSON(URL: string) {
 // Items
 
 export function fetchItem(itemID: number) {
-  return fetchJSON(getItemURL(itemID));
+  return fetchJSON(getItemURL(itemID.toString()));
 }
 
 function fetchItems(itemIDs: number[]): Promise<any> {
-  return Promise.all(itemIDs.map(itemID => fetchItem(itemID)));
+  return Promise.all(itemIDs.map((itemID) => fetchItem(itemID)));
 }
 
 // Stories

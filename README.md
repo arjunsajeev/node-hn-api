@@ -1,4 +1,4 @@
-# node-hn-api [![Build Status](https://travis-ci.org/arjunsajeev/node-hn-api.svg?branch=master)](https://travis-ci.org/arjunsajeev/node-hn-api) [![npm](https://img.shields.io/npm/v/node-hn-api.svg?maxAge=3600)](https://www.npmjs.com/package/node-hn-api) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
+# node-hn-api [![Build Status](https://travis-ci.org/arjunsajeev/node-hn-api.svg?branch=master)](https://travis-ci.org/arjunsajeev/node-hn-api) [![npm](https://img.shields.io/npm/v/node-hn-api.svg?maxAge=3600)](https://www.npmjs.com/package/node-hn-api) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A promise based wrapper for the
 [Firebase Hacker News API](https://github.com/HackerNews/API)
@@ -12,15 +12,14 @@ npm i node-hn-api
 ## Usage
 
 ```js
-const hn = require('node-hn-api')
-hn
-  .fetchTopStories(5)
-  .then(topStories => {
+const hn = require('node-hn-api');
+hn.fetchTopStories(5)
+  .then((topStories) => {
     //..
   })
-  .catch(err => {
-    console.error(err)
-  })
+  .catch((err) => {
+    console.error(err);
+  });
 ```
 
 ## API

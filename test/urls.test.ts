@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { getItemURL, getUserURL } from '../src/urls';
 
 test('Should return a valid user URL', () => {
