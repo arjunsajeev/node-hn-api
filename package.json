@@ -20,8 +20,11 @@
       "esm"
     ]
   },
+  "engines": {
+    "node": ">=16.6.0"
+  },
   "scripts": {
-    "start": "tsdx watch",
+    "start": "tsup --watch",
     "build": "tsup",
     "test": "vitest",
     "lint": "eslint",
