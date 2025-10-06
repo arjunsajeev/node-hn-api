@@ -1,81 +1,133 @@
-# node-hn-api [![Build Status](https://travis-ci.org/arjunsajeev/node-hn-api.svg?branch=master)](https://travis-ci.org/arjunsajeev/node-hn-api) [![npm](https://img.shields.io/npm/v/node-hn-api.svg?maxAge=3600)](https://www.npmjs.com/package/node-hn-api) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+# node-hn-api
 
-A promise based wrapper for the
-[Firebase Hacker News API](https://github.com/HackerNews/API)
+[![Build Status](https://travis-ci.org/arjunsajeev/node-hn-api.svg?branch=master)](https://travis-ci.org/arjunsajeev/node-hn-api) [![npm](https://img.shields.io/npm/v/node-hn-api.svg?maxAge=3600)](https://www.npmjs.com/package/node-hn-api) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+A modern TypeScript wrapper for the [Firebase Hacker News API](https://github.com/HackerNews/API) with full type support and promise-based methods.
+
+## Features
+
+- Promise-based API with full TypeScript support
+- Fetch individual items, users, and various story categories
+- Built-in error handling and type safety
+- Works in both Node.js and browser environments
+- Supports both CommonJS and ES modules
+- Zero runtime dependencies - uses native fetch API
 
 ## Installation
 
-```sh
-npm i node-hn-api
+```bash
+npm install node-hn-api
+# or
+pnpm add node-hn-api
+# or
+yarn add node-hn-api
 ```
 
-## Usage
+## Quick Start
 
-```js
+### CommonJS
+
+```javascript
 const hn = require('node-hn-api');
+
 hn.fetchTopStories(5)
-  .then((topStories) => {
-    //..
+  .then((stories) => {
+    console.log('Top 5 stories:', stories);
   })
-  .catch((err) => {
-    console.error(err);
+  .catch((error) => {
+    console.error('Error fetching stories:', error);
   });
 ```
 
-## API
+### ES Modules / TypeScript
 
-### fetchItem(itemId) - Fetch Hacker News [Item](https://github.com/HackerNews/API) data
+```typescript
+import { fetchTopStories, fetchItem, fetchUser } from 'node-hn-api';
 
-Returns a promise
+// Fetch top stories
+const stories = await fetchTopStories(10);
+console.log('Top 10 stories:', stories);
 
-### fetchUser(userId) - Fetch Hacker News [User](https://github.com/HackerNews/API#users) data
+// Fetch a specific item
+const item = await fetchItem(8863);
+console.log('Item details:', item);
 
-Returns a promise
+// Fetch user information
+const user = await fetchUser('pg');
+console.log('User details:', user);
+```
 
-### fetchTopStories([numberOfStories]) - Fetch Hacker News [Top Stories](https://github.com/HackerNews/API#new-top-and-best-stories) data
+## API Reference
 
-Returns a promise
+This library provides TypeScript-friendly functions with full type definitions. All functions return promises and include comprehensive JSDoc comments for excellent IDE support.
 
-#### numberOfStories - number
+### Core Functions
 
-Number of records to fetch
+```typescript
+// Fetch individual items and users
+fetchItem(itemId: number): Promise<HackerNewsItem>
+fetchUser(userId: string): Promise<HackerNewsUser>
 
-### fetchNewStories([numberOfStories]) - Fetch Hacker News [New Stories](https://github.com/HackerNews/API#new-top-and-best-stories) data
+// Fetch different story types (all with optional numberOfStories parameter, default: 10)
+fetchTopStories(numberOfStories?: number): Promise<HackerNewsItem[]>
+fetchNewStories(numberOfStories?: number): Promise<HackerNewsItem[]>
+fetchBestStories(numberOfStories?: number): Promise<HackerNewsItem[]>
+fetchAskStories(numberOfStories?: number): Promise<HackerNewsItem[]>
+fetchShowStories(numberOfStories?: number): Promise<HackerNewsItem[]>
+fetchJobStories(numberOfStories?: number): Promise<HackerNewsItem[]>
+```
 
-Returns a promise
+### Type Definitions
 
-#### numberOfStories - number
+The library exports `HackerNewsItem` and `HackerNewsUser` interfaces with complete type definitions. Your IDE will provide full IntelliSense support showing all available properties and their types.
 
-Number of records to fetch
+### Basic Examples
 
-### fetchBestStories([numberOfStories]) - Fetch Hacker News [Best Stories](https://github.com/HackerNews/API#new-top-and-best-stories) data
+```typescript
+// Fetch a story and its author
+const story = await fetchItem(8863);
+const author = await fetchUser(story.by);
+console.log(`"${story.title}" by ${author.id} (${author.karma} karma)`);
 
-Returns a promise
+// Get top stories
+const topStories = await fetchTopStories(10);
+console.log(topStories.map(s => `${s.title} (${s.score} points)`));
 
-#### numberOfStories - number
+// Error handling
+try {
+  const user = await fetchUser('username');
+  console.log(`User has ${user.submitted.length} submissions`);
+} catch (error) {
+  console.error('User not found:', error.message);
+}
+```
 
-Number of records to fetch
+For detailed parameter information, return types, and additional examples, rely on your IDE's IntelliSense or view the [generated type definitions](dist/index.d.ts).
 
-### fetchAskStories([numberOfStories]) - Fetch [Ask Hacker News Stories](https://github.com/HackerNews/API#ask-show-and-job-stories) data
+## Requirements
 
-Returns a promise
+- Node.js 18.0.0 or higher (for native fetch support)
+- Modern browsers (all browsers support fetch natively)
 
-#### numberOfStories - number
+## Contributing
 
-Number of records to fetch
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-### fetchShowStories([numberOfStories]) - Fetch [Show Hacker News Stories](https://github.com/HackerNews/API#ask-show-and-job-stories) data
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Returns a promise
+## License
 
-#### numberOfStories - number
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Number of records to fetch
+## Author
 
-### fetchJobStories([numberOfStories]) - Fetch Hacker News [Job Stories](https://github.com/HackerNews/API#ask-show-and-job-stories) data
+[Arjun Sajeev](https://arjun.xyz)
 
-Returns a promise
+## Related
 
-#### numberOfStories - number
-
-Number of records to fetch
+- [Firebase Hacker News API Documentation](https://github.com/HackerNews/API)
+- [Official Hacker News Website](https://news.ycombinator.com)

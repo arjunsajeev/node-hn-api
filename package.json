@@ -1,6 +1,6 @@
 {
   "name": "node-hn-api",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -21,21 +21,21 @@
     ]
   },
   "engines": {
-    "node": ">=16.6.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "start": "tsup --watch",
     "build": "tsup",
-    "test": "vitest",
+    "test": "vitest run",
     "lint": "eslint",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "husky": {
     "hooks": {
       "pre-commit": "eslint"
     }
   },
-  "author": "Arjun Sajeev (https://arjunsajeev.com)",
+  "author": "Arjun Sajeev (https://arjun.xyz)",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -52,14 +52,13 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@types/isomorphic-fetch": "^0.0.36",
-    "@typescript-eslint/eslint-plugin": "^6.6.0",
-    "@typescript-eslint/parser": "^6.6.0",
-    "eslint": "^8.48.0",
-    "eslint-config-prettier": "^9.0.0",
-    "isomorphic-fetch": "^3.0.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.3"
+    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.0",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "np": "^10.2.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   }
 }
