@@ -1,6 +1,6 @@
 {
   "name": "node-hn-api",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A modern TypeScript wrapper for the Firebase Hacker News API with full type support and promise-based methods",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
