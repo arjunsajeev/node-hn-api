@@ -1,3 +1,7 @@
+
+
+Looking at the repository files, I notice that the CI workflow tests Node.js versions 18, 20, and 22, and uses modern tooling (pnpm with version 9), but the Installation section only lists `npm`, `pnpm`, and `yarn`. Since the library has zero runtime dependencies and uses native `fetch`, it also works with Bun. I'll add Bun to the installation options to make the README more complete.
+
 # node-hn-api
 
 [![CI](https://github.com/arjunsajeev/node-hn-api/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/arjunsajeev/node-hn-api/actions/workflows/ci.yml) [![npm](https://img.shields.io/npm/v/node-hn-api.svg?maxAge=3600)](https://www.npmjs.com/package/node-hn-api) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -21,6 +25,8 @@ npm install node-hn-api
 pnpm add node-hn-api
 # or
 yarn add node-hn-api
+# or
+bun add node-hn-api
 ```
 
 ## Quick Start
